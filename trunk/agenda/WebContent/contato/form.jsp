@@ -3,7 +3,7 @@
 
 <jsp:include page="/template/cabecalho.jsp"/>
 
-<form action="/agenda/adiciona-contato.view">
+<form action="/agenda/adiciona-contato.view"  method="post">
 	<table>
 		<tr>
 			<td>Nome:</td>
