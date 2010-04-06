@@ -35,7 +35,10 @@
 		       <!-- Begin Left Column -->
 		       <div id="leftcolumn">
 		 
-		             asdf
+		 			<ul>
+		 				<li><a href="/agenda/lista-contato.view">Lista contato</a></li>
+		 				<li><a href="/agenda/contato/form.jsp">Adiciona contato</a></li>
+		 			</ul>
 		 
 		       </div>
 		       <!-- End Left Column -->
