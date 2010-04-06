@@ -3,7 +3,6 @@
 
 <jsp:include page="/template/cabecalho.jsp"/>
 
-<a href="/agenda/lista-contato.view">Lista contato</a><br>
-<a href="/agenda/contato/form.jsp">Adiciona contato</a><br>
+Bem vindo a AgendaWeb!
 
 <jsp:include page="/template/rodape.jsp"/>
