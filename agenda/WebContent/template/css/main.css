@@ -65,3 +65,10 @@ body {
  padding: 10px;
 }
 .clear { clear: both; background: none; }
+.link {
+text-decoration: underline;
+border: none;
+background: none;
+color: blue;
+cursor: pointer;
+}

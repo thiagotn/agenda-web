@@ -24,7 +24,15 @@
 		 <!-- Begin Navigation -->
          <div id="navigation">
 		 
-		       This is the Navigation		 
+		       Olá
+		       <c:if test="${not empty usuarioWeb}">
+		       		${usuarioWeb.nome}!
+		       		<a href="/agenda/logout.view">Sair</a>
+		       </c:if>
+			   <c:if test="${empty usuarioWeb}">
+		       		Visitante! 
+		       		<a href="/agenda/login.jsp">Acessar</a>
+		       </c:if>		       		 
 			   
 		 </div>
 		 <!-- End Navigation -->
@@ -36,8 +44,8 @@
 		       <div id="leftcolumn">
 		 
 		 			<ul>
-		 				<li><a href="/agenda/lista-contato.view">Lista contato</a></li>
-		 				<li><a href="/agenda/contato/form.jsp">Adiciona contato</a></li>
+		 				<li><a href="/agenda/contato/lista.view">Lista contato</a></li>
+		 				<li><a href="/agenda/contato/form.view">Adiciona contato</a></li>
 		 			</ul>
 		 
 		       </div>

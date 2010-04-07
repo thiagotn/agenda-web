@@ -22,8 +22,8 @@
 				<td>${contato.email}</td>
 				<td>${contato.endereco}</td>
 				<td><fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy" /></td>
-				<td><a href="/agenda/edita-contato.view?id=${contato.id}">Editar</a></td>
-				<td><a href="/agenda/remove-contato.view?id=${contato.id}">Excluir</a></td>
+				<td><a href="/agenda/contato/edita.view?id=${contato.id}">Editar</a></td>
+				<td><a href="/agenda/contato/remove.view?id=${contato.id}">Excluir</a></td>
 			</tr>
 		</c:forEach>
 	</c:if>
