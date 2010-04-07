@@ -8,23 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.agenda.jdbc.dao.ContatoDAO;
-import br.com.agenda.modelo.Contato;
-
 @SuppressWarnings("serial")
-public class RemoveContatoServlet extends HttpServlet {
+public class IndexServlet extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));
-		
-		ContatoDAO dao = new ContatoDAO();
-		Contato contato = dao.pesquisar(id);
-		dao.remove(contato);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/contato/lista.view");
+		RequestDispatcher rd = request.getRequestDispatcher("/agenda/index.jsp");
 		rd.forward(request, response);
 	}
 }

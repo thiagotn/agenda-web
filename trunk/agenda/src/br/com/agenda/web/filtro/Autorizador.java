@@ -34,7 +34,7 @@ public class Autorizador implements Filter {
 		
 		urlRequisitada = httpRequest.getRequestURI();
 		
-		if((!urlRequisitada.endsWith(".view")) || (urlRequisitada.equals("/agenda/autenticacao.view"))){
+		if((urlRequisitada.contains("login.view")) || (urlRequisitada.contains("logout.view")) ){
 			chain.doFilter(request, response);
 		} else {
 			Usuario usuario = (Usuario) session.getAttribute("usuarioWeb");

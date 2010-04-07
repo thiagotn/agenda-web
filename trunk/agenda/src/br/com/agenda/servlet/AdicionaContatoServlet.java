@@ -50,7 +50,7 @@ public class AdicionaContatoServlet extends HttpServlet {
 		ContatoDAO dao = new ContatoDAO();
 		dao.adiciona(contato);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/lista-contato.view");
+		RequestDispatcher rd = request.getRequestDispatcher("/contato/lista.view");
 		rd.forward(request, response);
 	}
 }

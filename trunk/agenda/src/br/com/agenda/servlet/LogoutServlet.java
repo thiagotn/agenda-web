@@ -7,24 +7,21 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import br.com.agenda.jdbc.dao.ContatoDAO;
-import br.com.agenda.modelo.Contato;
+import javax.servlet.http.HttpSession;
 
 @SuppressWarnings("serial")
-public class RemoveContatoServlet extends HttpServlet {
-
+public class LogoutServlet extends HttpServlet {
+	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		HttpServletRequest httpRequest = (HttpServletRequest) request;
+		HttpSession session = httpRequest.getSession();
 		
-		ContatoDAO dao = new ContatoDAO();
-		Contato contato = dao.pesquisar(id);
-		dao.remove(contato);
+		session.removeAttribute("usuarioWeb");
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/contato/lista.view");
+		RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
 		rd.forward(request, response);
 	}
 }
