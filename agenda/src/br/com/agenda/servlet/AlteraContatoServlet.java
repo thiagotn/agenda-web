@@ -52,7 +52,7 @@ public class AlteraContatoServlet extends HttpServlet {
 		ContatoDAO dao = new ContatoDAO();
 		dao.altera(contato);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/lista-contato.view");
+		RequestDispatcher rd = request.getRequestDispatcher("/contato/lista.view");
 		rd.forward(request, response);
 	}
 }
