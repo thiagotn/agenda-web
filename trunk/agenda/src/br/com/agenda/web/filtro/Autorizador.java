@@ -29,21 +29,15 @@ public class Autorizador implements Filter {
 
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
-		
 		HttpSession session = httpRequest.getSession();
+		//urlRequisitada = httpRequest.getRequestURI();
 		
-		urlRequisitada = httpRequest.getRequestURI();
-		
-		if((urlRequisitada.contains("login.view")) || (urlRequisitada.contains("logout.view")) ){
+		Usuario usuario = (Usuario) session.getAttribute("usuarioWeb");
+		if(usuario != null) {
 			chain.doFilter(request, response);
 		} else {
-			Usuario usuario = (Usuario) session.getAttribute("usuarioWeb");
-			if(usuario != null) {
-				chain.doFilter(request, response);
-			} else {
-				httpResponse.sendRedirect("/agenda/login.jsp");
-			}	
-		}
+			httpResponse.sendRedirect("/agenda/login.jsp");
+		}	
 	}
 
 	@Override
