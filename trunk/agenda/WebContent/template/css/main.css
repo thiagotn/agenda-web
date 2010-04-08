@@ -64,6 +64,9 @@ body {
  margin: 0px 0px 10px 0px;
  padding: 10px;
 }
+#errors {
+ color: #FF0000;		
+}	
 .clear { clear: both; background: none; }
 .link {
 text-decoration: underline;

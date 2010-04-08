@@ -30,7 +30,7 @@ public class Autorizador implements Filter {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		HttpSession session = httpRequest.getSession();
-		//urlRequisitada = httpRequest.getRequestURI();
+		urlRequisitada = httpRequest.getRequestURI();
 		
 		Usuario usuario = (Usuario) session.getAttribute("usuarioWeb");
 		if(usuario != null) {

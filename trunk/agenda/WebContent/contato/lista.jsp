@@ -1,41 +1,36 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 
 <jsp:include page="/template/cabecalho.jsp"/>
 
-<table border="1">
-	<tr>
-		<td align="center" colspan="6">Lista de Contatos</td>
-	</tr>
-	<tr>
-		<td>Nome</td>
-		<td>Email</td>
-		<td>Endereço</td>
-		<td>Data Nascimento</td>
-		<td>Editar</td>
-		<td>Excluir</td>
-	</tr>
-	<c:if test="${not empty contatos}">
-		<c:forEach items="${contatos}" var="contato">
-			<tr>
-				<td>${contato.nome}</td>
-				<td>${contato.email}</td>
-				<td>${contato.endereco}</td>
-				<td><fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy" /></td>
-				<td><a href="/agenda/contato/edita.view?id=${contato.id}">Editar</a></td>
-				<td><a href="/agenda/contato/remove.view?id=${contato.id}">Excluir</a></td>
-			</tr>
-		</c:forEach>
-	</c:if>
-	<c:if test="${empty contatos}">
-		<tr>
-			<td colspan="6" align="center">Não constam registros</td>
-		</tr>
-	</c:if>
-</table>
-
-<jsp:include page="/template/rodape.jsp"/>
-
-
-
-
+	<display:table name="contatos" export="true" requestURI="" sort="list" pagesize="10" id="contato" class="simple">
+	    <display:column property="nome" title="Nome" sortable="true" headerClass="sortable" />
+	    <display:column property="email" title="Email" sortable="true" headerClass="sortable" />
+	    <display:column property="endereco" title="Endereço" sortable="true" headerClass="sortable" />
+	    <display:column media="html" title="Data Nascimento">
+		    <fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy" />
+	    </display:column>
+	    <display:column media="html" title="Edit">
+			<a href="/agenda/contato/edita.view?id=${contato.id}">
+				<img src="<c:url value="/template/img/add.png" />" alt="Editar" width="20px" height="20px"/>
+			</a>
+	    </display:column>
+	    <display:column media="html" title="Del">
+			<a href="/agenda/contato/remove.view?id=${contato.id}">
+				<img src="<c:url value="/template/img/delete.png" />" alt="Remover" width="20px" height="20px"/>
+			</a>
+	    </display:column>
+	    <display:setProperty name="export.csv" value="true" />
+	    <display:setProperty name="export.excel" value="true" />
+	    <display:setProperty name="export.xml" value="true" />
+	    <display:setProperty name="export.pdf" value="true" />
+	    <display:setProperty name="export.rtf" value="true" />
+	    <display:setProperty name="export.csv.filename" value="produtos.csv"  />
+	    <display:setProperty name="export.excel.filename" value="produtos.xls"  />
+	    <display:setProperty name="export.xml.filename" value="produtos.xml"  />
+	    <display:setProperty name="export.pdf.filename" value="produtos.pdf"  />
+		<display:setProperty name="export.rtf.filename" value="produtos.rtf"  />
+	</display:table>
+  
+<jsp:include page="/template/rodape.jsp"/>  
