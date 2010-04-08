@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <jsp:include page="/template/cabecalho.jsp"/>
-
 <form action="/agenda/contato/altera.view" method="post">
 <input type="hidden" name="id" value="${contato.id}"/>
 	<table>
