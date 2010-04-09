@@ -1,0 +1,12 @@
+Olá %s
+
+Seja bem vindo!, 
+seus dados para acesso ao sistema estão descritos abaixo:
+
+usuario: %s
+senha: %s
+
+para maiores informações acesse nosso site!
+
+Obrigado,
+Administrador!
