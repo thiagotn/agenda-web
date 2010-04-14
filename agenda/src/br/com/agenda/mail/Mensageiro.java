@@ -40,6 +40,10 @@ public class Mensageiro
         mailProps.put("mail.smtp.port", applicationProperties.getProperty("mail.smtp.port"));
         mailProps.put("mail.smtp.auth", "true");   
         mailProps.put("mail.mime.charset", "ISO-8859-1");   
+        
+        mailProps.put("mail.smtp.socketFactory.port", 465); //mesma porta para o socket  
+        mailProps.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");  
+        mailProps.put("mail.smtp.socketFactory.fallback", "false");
 
         Authenticator auth = new SingleAuthenticator();   
         Session session = Session.getDefaultInstance(mailProps, auth); 
