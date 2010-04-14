@@ -28,7 +28,7 @@ public class ContatoDAO {
 	}
 	
 	public void adiciona(Contato contato) {
-		String sql = "insert into contatos (nome, email, endereco, dataNascimento) values (?,?,?,?)";
+		String sql = "insert into contatos (nome, email, endereco, dataNascimento, id_usuario) values (?,?,?,?,?)";
 		
 		try {
 			// prepared statment para inserção
@@ -39,6 +39,7 @@ public class ContatoDAO {
 			stmt.setString(2, contato.getEmail());
 			stmt.setString(3, contato.getEndereco());
 			stmt.setDate(4, new Date( contato.getDataNascimento().getTimeInMillis() ));
+			stmt.setString(5, contato.getUsuario().getLogin());
 			
 			// executa
 			stmt.execute();

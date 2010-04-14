@@ -58,10 +58,21 @@ public class AdicionaContatoServlet extends HttpServlet {
 		ContatoDAO dao = new ContatoDAO();
 		dao.adiciona(contato);
 		
+		enviarEmailNovoUsuario(contato);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/contato/lista.view");
 		rd.forward(request, response);
 	}
 	
+	public void enviarEmailNovoUsuario(Contato contato){
+		Mensageiro mensageiro = new Mensageiro();
+		String template = mensageiro.carregaTemplate("/novocontato.mail");
+		String mensagemTxt = String.format(template,contato.getNome(),contato.getEmail());
+		Mensagem mensagem = new Mensagem();
+		mensagem.setPara(contato.getEmail());
+		mensagem.setAssunto("Olá " + contato.getNome() +  " - Você foi adicionado a Agenda Web");
+		mensagem.setMensagem(mensagemTxt);
+		mensageiro.enviarMensagem(mensagem);
+	}
 
 }
