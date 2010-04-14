@@ -1,11 +1,12 @@
 package br.com.agenda.modelo;
 
+
 public class Usuario {
 	
 	private String login;
 	private String senha;
 	private String nome;
-
+	
 	public String getLogin() {
 		return login;
 	}
