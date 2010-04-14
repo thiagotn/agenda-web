@@ -65,6 +65,7 @@ public class AdicionaContatoServlet extends HttpServlet {
 	}
 	
 	public void enviarEmailNovoUsuario(Contato contato){
+		
 		Mensageiro mensageiro = new Mensageiro();
 		String template = mensageiro.carregaTemplate("/novocontato.mail");
 		String mensagemTxt = String.format(template,contato.getNome(),contato.getEmail());
@@ -73,6 +74,7 @@ public class AdicionaContatoServlet extends HttpServlet {
 		mensagem.setAssunto("Olá " + contato.getNome() +  " - Você foi adicionado a Agenda Web");
 		mensagem.setMensagem(mensagemTxt);
 		mensageiro.enviarMensagem(mensagem);
+		
 	}
 
 }
