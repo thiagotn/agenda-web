@@ -11,6 +11,7 @@ import java.util.List;
 
 import br.com.agenda.jdbc.FabricaDeConexao;
 import br.com.agenda.modelo.Contato;
+import br.com.agenda.modelo.Usuario;
 
 public class ContatoDAO {
 
@@ -52,6 +53,37 @@ public class ContatoDAO {
 		try {
 			List<Contato> contatos = new ArrayList<Contato>();
 			PreparedStatement stmt = this.connection.prepareStatement("select * from contatos");
+			ResultSet rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+				// Criando o contato
+				Contato contato = new Contato();
+				contato.setId(rs.getInt("id"));
+				contato.setNome(rs.getString("nome"));
+				contato.setEmail(rs.getString("email"));
+				contato.setEndereco(rs.getString("endereco"));
+				
+				Calendar  data = Calendar.getInstance();
+				data.setTime(rs.getDate("dataNascimento"));
+				contato.setDataNascimento(data); 
+				
+				// Adicionando o objeto a Lista
+				contatos.add(contato);
+			}
+			rs.close();
+			stmt.close();
+			return contatos;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public List<Contato> getLista(Usuario usuario){
+
+		try {
+			List<Contato> contatos = new ArrayList<Contato>();
+			PreparedStatement stmt = this.connection.prepareStatement("select * from contatos where id_usuario=?");
+			stmt.setString(1, usuario.getLogin());
 			ResultSet rs = stmt.executeQuery();
 			
 			while(rs.next()) {

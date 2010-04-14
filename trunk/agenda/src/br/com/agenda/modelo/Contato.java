@@ -9,10 +9,10 @@ public class Contato {
 	private String nome;
 	private String email;
 	private String endereco;
-	private Calendar dataNascimento; 
+	private Calendar dataNascimento;
+	private Usuario usuario;
 	
 	// métodos getters e setters
-
 	public String getNome(){
 		return this.nome;
 	}
@@ -51,5 +51,13 @@ public class Contato {
 	
 	public void setEndereco(String endereco){
 		this.endereco = endereco;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 }
