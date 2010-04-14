@@ -4,7 +4,7 @@
 
 <jsp:include page="/template/cabecalho.jsp"/>
 
-	<display:table name="contatos" export="true" requestURI="" sort="list" pagesize="10" id="contato" class="simple">
+	<display:table name="contatos" export="true" sort="list" pagesize="10" id="contato" class="simple">
 	    <display:column property="nome" title="Nome" sortable="true" headerClass="sortable" />
 	    <display:column property="email" title="Email" sortable="true" headerClass="sortable" />
 	    <display:column property="endereco" title="Endereço" sortable="true" headerClass="sortable" />
