@@ -27,8 +27,7 @@ public class FabricaDeConexao {
 		}
 	}
 
-	public static Connection getConexaoPostgreSQL() throws Exception,
-			SQLException {
+	public static Connection getConexaoPostgreSQL() throws Exception, SQLException {
 		try {
 
 			Class.forName("org.postgresql.Driver");
@@ -39,8 +38,7 @@ public class FabricaDeConexao {
 		}
 	}
 
-	public static Connection getConexaoOracleXE() throws Exception,
-			SQLException {
+	public static Connection getConexaoOracleXE() throws Exception, SQLException {
 		try {
 
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -50,5 +48,4 @@ public class FabricaDeConexao {
 			throw new RuntimeException(e);
 		}
 	}
-
 }
