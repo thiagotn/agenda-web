@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <jsp:include page="/template/cabecalho.jsp"/>
-<form action="/agenda/contato/altera.view" method="post">
+<form action="<c:url value="/contato/altera.view"/>" method="post">
 <input type="hidden" name="id" value="${contato.id}"/>
 	<table>
 		<tr>
@@ -14,7 +14,7 @@
 		<tr>
 			<td>Email:</td>
 			<td>
-				<input type="text" name="email" value="${contato.email}"/>
+				<input type="text" name="email" value="${contato.valor}"/>
 			</td>
 		</tr>
 		<tr>
