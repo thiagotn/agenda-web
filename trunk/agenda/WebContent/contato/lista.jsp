@@ -5,9 +5,9 @@
 <jsp:include page="/template/cabecalho.jsp"/>
 
 	<display:table name="contatos" export="true" sort="list" pagesize="10" id="contato" class="simple">
-	    <display:column property="nome" title="Nome" sortable="true" headerClass="sortable" />
-	    <display:column property="email" title="Email" sortable="true" headerClass="sortable" />
-	    <display:column property="endereco" title="Endereço" sortable="true" headerClass="sortable" />
+	    <display:column property="nome" title="Nome" group="1" sortable="true" headerClass="sortable" />
+	    <display:column property="email" title="Email" group="2" sortable="true" headerClass="sortable" />
+	    <display:column property="endereco" title="Endereço" group="3" sortable="true" headerClass="sortable" />
 	    <display:column media="html" title="Data Nascimento">
 		    <fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy" />
 	    </display:column>
