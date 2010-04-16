@@ -12,12 +12,12 @@
 		    <fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy" />
 	    </display:column>
 	    <display:column media="html" title="Edit">
-			<a href="/agenda/contato/edita.view?id=${contato.id}">
+			<a href="<c:url value="/contato/edita.view?id=${contato.id}"/>">
 				<img src="<c:url value="/template/img/add.png" />" alt="Editar" width="20px" height="20px"/>
 			</a>
 	    </display:column>
 	    <display:column media="html" title="Del">
-			<a href="/agenda/contato/remove.view?id=${contato.id}">
+			<a href="<c:url value="/contato/remove.view?id=${contato.id}"/>">
 				<img src="<c:url value="/template/img/delete.png" />" alt="Remover" width="20px" height="20px"/>
 			</a>
 	    </display:column>
