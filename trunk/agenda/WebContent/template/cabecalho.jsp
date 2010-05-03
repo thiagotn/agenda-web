@@ -46,7 +46,13 @@
 		       <div id="leftcolumn">
 		 			<c:if test="${not empty usuarioWeb}">
 			 			<ul>
-			 				<li><a href="/agenda/contato/lista.view">Lista contato</a></li>
+			 				<li>
+					       		<form action="<c:url value="/contato/lista.view" />" method="get">
+					       			<input type="submit" name="Lista Contato" class="link"/>
+					       		</form>
+			 				
+			 					<a href="/agenda/contato/lista.view">Lista contato</a>
+			 				</li>
 			 				<li><a href="/agenda/contato/form.view">Adiciona contato</a></li>
 			 			</ul>
 		 			</c:if>
