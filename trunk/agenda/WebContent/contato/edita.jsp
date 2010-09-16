@@ -14,7 +14,7 @@
 		<tr>
 			<td>Email:</td>
 			<td>
-				<input type="text" name="email" value="${contato.valor}"/>
+				<input type="text" name="email" value="${contato.email}"/>
 			</td>
 		</tr>
 		<tr>
