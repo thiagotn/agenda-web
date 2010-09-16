@@ -43,7 +43,7 @@ public class AdicionaContatoServlet extends HttpServlet {
 			dataNascimento.setTime(date);
 		} catch (ParseException e) {
 			System.out.println("Erro ao converter a data");
-			return; // retorna para a execução do método
+			dataNascimento = null;
 		}
 		
 		// Instancia Contato
@@ -58,7 +58,7 @@ public class AdicionaContatoServlet extends HttpServlet {
 		ContatoDAO dao = new ContatoDAO();
 		dao.adiciona(contato);
 		
-		enviarEmailNovoUsuario(contato);
+		//enviarEmailNovoUsuario(contato);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/contato/lista.view");
 		rd.forward(request, response);
